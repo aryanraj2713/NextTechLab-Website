@@ -1,1 +1,0 @@
-# ntl_hackathon
