@@ -15,7 +15,7 @@ mpDraw = mp.solutions.drawing_utils
 
 # Load the gesture recognizer model
 #model = load_model('mp_hand_gesture')
-model = load_model('ML model\model.h5')
+model = load_model('model.h5')
 
 # Load class names
 classNames = ["left", "right", "up", "down"]
@@ -23,6 +23,7 @@ classNames = ["left", "right", "up", "down"]
 
 # Initialize the webcam
 cap = cv2.VideoCapture(0)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH,1000);
 each = []
 while True:
     # Read each frame from the webcam
