@@ -38,7 +38,7 @@ $(document).ready(function(){
 
 });
 
-var video = document.querySelector("#video");
+var video = document.querySelector(".output_canvas");
 
 if (navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({ video: true })

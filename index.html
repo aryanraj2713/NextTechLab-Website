@@ -10,8 +10,10 @@
 </head>
 
 <body>
-    <video id="video" width="100%" height="100%" autoplay></video>
+    <video class="input_video" width="100%" height="100%" hidden></video>
+    <canvas class="output_canvas" width="100%" height="100%"></canvas>
     <div class="container">
+        <p id="p1">Hello</p>
         <div class="labs">
             <div class="pausch lab">
                 <h1>Pausch</h1>
@@ -53,6 +55,76 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.7.0" crossorigin="anonymous"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.5.1/dist/tfjs-vis.umd.min.js" crossorigin="anonymous"></script>
+    <script type="module">
+        const videoElement = document.getElementsByClassName('input_video')[0];
+        const canvasElement = document.getElementsByClassName('output_canvas')[0];
+        const canvasCtx = canvasElement.getContext('2d');
+        const model = await tf.loadLayersModel('/lol/model.json');
+        function onResults(results) {
+        canvasCtx.save();
+        canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+        canvasCtx.drawImage(
+            results.image, 0, 0, canvasElement.width, canvasElement.height);
+        if (results.multiHandLandmarks) {
+            for (const landmarks of results.multiHandLandmarks) {
+            drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS,
+                            {color: '#00FF00', lineWidth: 5});
+            drawLandmarks(canvasCtx, landmarks, {color: '#FF0000', lineWidth: 2});
+            var only_index = landmarks.slice(5, 9)
+            var coods = []
+            for (let i = 0; i < only_index.length; i++){
+                coods.push(only_index[i].x)
+                coods.push(only_index[i].y)
+            }
+            //pred = model.predict(tf.tensor(coods))
+            var a = tf.tensor(coods)
+            var a = a.reshape([1, 8])
+            var j = [1, 2, 3, 4]
+            var pred = model.predict(a)
+            //pred = pred.array()
+            pred = pred.arraySync()[0]
+            var i = pred.indexOf(Math.max(...pred))
+            document.getElementById("p1").innerHTML = i;
+            if (i == 0){
+                document.getElementById("p1").innerHTML = "right";
+            } else if (i == 1){
+                document.getElementById("p1").innerHTML = "left";
+            } else if (i == 2){
+                document.getElementById("p1").innerHTML = "up";
+            } else if (i == 3){
+                document.getElementById("p1").innerHTML = "down";
+            }
+            }
+        }
+        canvasCtx.restore();
+        }
+        
+        const hands = new Hands({locateFile: (file) => {
+        return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
+        }});
+        hands.setOptions({
+        maxNumHands: 1,
+        modelComplexity: 1,
+        minDetectionConfidence: 0.7,
+        minTrackingConfidence: 0.7
+        });
+        hands.onResults(onResults);
+        
+        const camera = new Camera(videoElement, {
+        onFrame: async () => {
+            await hands.send({image: videoElement});
+        },
+        width: 720,
+        height: 720
+        });
+        camera.start();
+    </script>
 </body>
     
 
