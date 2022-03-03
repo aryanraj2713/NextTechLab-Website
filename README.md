@@ -44,7 +44,8 @@
 
 ![We track only 4 points from your palm](https://user-images.githubusercontent.com/75358720/156222036-d7e776b6-7934-43eb-ae0f-dceca001b61d.png)
 
-https://user-images.githubusercontent.com/75358720/156398963-06688c30-14be-48bd-bc06-5ec3438cb448.mp4
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/75358720/156502911-ece65ffb-1f74-4716-b0c9-eb36600ab7d2.gif)
+
 
 
 
