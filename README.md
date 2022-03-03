@@ -15,7 +15,7 @@
 ![JS](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Ang](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+
 
 
 
@@ -44,6 +44,7 @@
 
 ![We track only 4 points from your palm](https://user-images.githubusercontent.com/75358720/156222036-d7e776b6-7934-43eb-ae0f-dceca001b61d.png)
 
+https://user-images.githubusercontent.com/75358720/156398963-06688c30-14be-48bd-bc06-5ec3438cb448.mp4
 
 
 
