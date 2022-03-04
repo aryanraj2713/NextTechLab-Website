@@ -1,2 +1,6 @@
 flask
 opencv-python
+tensorflow
+mediapipe
+numpy
+
