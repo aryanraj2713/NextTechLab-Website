@@ -2,58 +2,299 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NTL Hackathon</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NTL Hackathon</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='styles.css')}}">
 </head>
 
 <body>
-    <video id="video" width="100%" height="100%" autoplay></video>
-    <div class="container">
-        <div class="labs">
-            <div class="pausch lab">
-                <h1>Pausch</h1>
-                <article>
-                    this is a mock data of the porsch website - we will develop this soon<br>
-                    Porsch details, descriptions, etc
-                </article>
-            </div>
-            <div class="tesla lab">
-                <h1>Tesla</h1>
-                <article>
-                    this is a mock data of the Tesla website - we will develop this soon<br>
-                    Tesla details,descriptions, etc
-                </article>
-            </div>
-            <div class="satoshi lab">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@1,500&display=swap");
 
-                <h1>Satoshi</h1>
-            </div>
-            <div class="mc-carthy lab">
-                <h1>Mc Carthy</h1>
-            </div>
-        </div>
+    * {
+      margin: 0;
+      padding: 0;
+    }
 
-        <div class="buttons">
-            <div class="pausch-btn">
-                Pausch
-            </div>
-            <div class="tesla-btn">
-                Tesla
-            </div>
-            <div class="satoshi-btn">
-                Satoshi
-            </div>
-            <div class="mc-carthy-btn">
-                mccarthy
-            </div>
+    .labs {
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      background-color: rgba(0, 195, 255, 0.516);
+    }
+
+    .lab {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      height: 40vw;
+      width: 40vw;
+    }
+
+    .pausch-btn,
+    .tesla-btn,
+    .mc-carthy-btn,
+    .satoshi-btn {
+      width: 100px;
+      height: auto;
+      padding: 10px;
+      background: white;
+      position: absolute;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .pausch-btn {
+      border-radius: 0px 24px 24px 0px;
+    }
+
+    .tesla-btn {
+      border-radius: 24px 0px 0px 24px;
+    }
+
+    .satoshi-btn {
+      border-radius: 0px 0px 24px 24px;
+    }
+
+    .mc-carthy-btn {
+      border-radius: 24px 24px 0px 0px;
+    }
+
+    .buttons {
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      overflow: hidden;
+    }
+
+    .satoshi-btn {
+      top: 0%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+    }
+
+    .mc-carthy-btn {
+      bottom: 0%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+    }
+
+    .tesla-btn {
+      right: 0%;
+      top: 44%;
+    }
+
+    .pausch-btn {
+      top: 44%;
+    }
+
+    #video {
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      transform: rotateY(0deg) !important;
+    }
+
+    /* Mc Carthy  */
+    #mc-carthy-asset-1 {
+      height: auto;
+      width: 100%;
+    }
+
+    .mc-carthy {
+      background: #001936;
+      border-radius: 24px;
+    }
+
+    .mc-carthy h1 {
+      color: rgb(255, 255, 255);
+      font-family: "Exo", sans-serif;
+      text-align: center;
+      padding: 10px;
+      font-size: 6vw;
+    }
+
+    /*   Tesla    */
+    .tesla {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 24px;
+      background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.dribbble.com%2Fusers%2F69417%2Fscreenshots%2F3816920%2Fdribbble_tele2.gif&f=1&nofb=1");
+
+    }
+
+    .tesla h1 {
+      color: rgb(255, 255, 255);
+      font-family: "Exo", sans-serif;
+      text-align: center;
+      padding: 10px;
+      font-size: 6vw;
+    }
+
+    #tesla-asset-1 {
+      height: auto;
+      width: 60%;
+    }
+
+    /* Satoshi */
+    .satoshi {
+      background: #000076;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 24px;
+      background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fmax%2F3840%2F0*EBXqB5wJTWFeaT04.gif&f=1&nofb=1");
+      background-position: center;
+    }
+
+    .satoshi h1 {
+      color: rgb(255, 255, 255);
+      font-family: "Exo", sans-serif;
+      text-align: center;
+      padding: 10px;
+      font-size: 6vw;
+    }
+
+    #satoshi-asset-1 {
+      height: auto;
+      width: 60%;
+    }
+
+    /*  Pausch    */
+
+    .pausch {
+      background: #000076;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 24px;
+      background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-DVrWOSbR6s8%2FXko285F9knI%2FAAAAAAAAUuE%2FqOjpIWq4B1YV25zAjEEiXn0J_gKG_c-iACLcBGAsYHQ%2Fs1600%2FVR%252B2.gif&f=1&nofb=1");
+    }
+
+    .pausch h1 {
+      color: rgb(255, 255, 255);
+      font-family: "Exo", sans-serif;
+      text-align: center;
+      padding: 10px;
+      font-size: 6vw;
+    }
+
+    #pausch-asset-1 {
+      height: auto;
+      width: 60%;
+    }
+  </style>
+  <div class="video_container">
+    <img src="{{ url_for('video') }}" id="video" />
+  </div>
+
+  <div class="container">
+    <div class="labs">
+      <div class="pausch lab">
+        <h1>Pausch</h1>
+
+      </div>
+      <div class="tesla lab">
+        <h1>Tesla</h1>
+      </div>
+      <div class="satoshi lab">
+
+        <h1>Satoshi</h1>
+      </div>
+      <div class="mc-carthy lab">
+        <div class="content-mc-carthy">
+          <h1>Mc Carthy</h1>
+          <img
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.dribbble.com%2Fusers%2F1643824%2Fscreenshots%2F3429154%2Funtitled-4.gif&f=1&nofb=1"
+            id="mc-carthy-asset-1">
+
+
         </div>
+      </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+
+    <div class="buttons">
+      <div class="pausch-btn">
+        Pausch
+      </div>
+      <div class="tesla-btn">
+        Tesla
+      </div>
+      <div class="satoshi-btn">
+        Satoshi
+      </div>
+      <div class="mc-carthy-btn">
+        mccarthy
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".lab").hide();
+
+      $(".satoshi-btn").click(function () {
+
+        $(".pausch").hide();
+        $(".tesla").hide();
+        $(".mc-carthy").hide();
+
+        $(".satoshi").toggle(300);
+      });
+
+      $(".tesla-btn").click(function () {
+        $(".pausch").hide();
+        $(".mc-carthy").hide();
+        $(".satoshi").hide();
+
+        $(".tesla").toggle(300);
+      });
+
+      $(".mc-carthy-btn").click(function () {
+
+        $(".pausch").hide();
+        $(".tesla").hide();
+        $(".satoshi").hide();
+
+        $(".mc-carthy").toggle(300);
+
+      });
+
+
+      $(".pausch-btn").click(function () {
+
+        $(".tesla").hide();
+        $(".mc-carthy").hide();
+        $(".satoshi").hide();
+
+        $(".pausch").toggle(300);
+
+      });
+    });
+
+    var video = document.querySelector("#video");
+
+    if (navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then(function (stream) {
+          video.srcObject = stream;
+        })
+        .catch(function (error) {
+          console.log("Something went wrong!" + error);
+        });
+    }
+
+  </script>
 </body>
-    
 
 </html>
