@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Next Tech Lab</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="{{url_for('.static', filename='favicon.ico')}}">
+</head>
+
+<body>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@1,500&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .labs {
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+
+    }
+
+    .lab {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      height: 40vw;
+      width: 40vw;
+      border-radius: 24px;
+    }
+
+
+    .pausch-btn,
+    .tesla-btn,
+    .mc-carthy-btn,
+    .satoshi-btn {
+      width: 100px;
+      height: auto;
+      padding: 10px;
+      background: white;
+      position: absolute;
+      text-align: center;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .pausch-btn {
+      border-radius: 0px 24px 24px 0px;
+    }
+
+    .tesla-btn {
+      border-radius: 24px 0px 0px 24px;
+    }
+
+    .satoshi-btn {
+      border-radius: 0px 0px 24px 24px;
+    }
+
+    .mc-carthy-btn {
+      border-radius: 24px 24px 0px 0px;
+    }
+
+
+
+    .buttons {
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      overflow: hidden;
+    }
+
+    .satoshi-btn {
+      top: 0%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+    }
+
+    .mc-carthy-btn {
+      bottom: 0%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+    }
+
+    .tesla-btn {
+      right: 0%;
+      top: 44%;
+    }
+
+    .pausch-btn {
+      top: 44%;
+    }
+
+    #video {
+      position: absolute;
+      width: 100vw;
+      height: 100%;
+      transform: rotateY(0deg) !important;
+      background: rgb(7, 192, 205);
+      background: linear-gradient(138deg, rgba(7, 192, 205, 1) 0%, rgba(84, 77, 243, 1) 37%, rgba(120, 53, 230, 1) 89%);
+    }
+
+    /* Mc Carthy  */
+
+    .mc-carthy {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 24px;
+    }
+
+
+
+    /*   Tesla    */
+    .tesla {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 24px;
+
+    }
+
+    .tesla-info,
+    .pausch-info,
+    .satoshi-info,
+    .mc-carthy-info {
+      z-index: 2;
+      width: 80%;
+      text-align: center;
+      color: white;
+    }
+
+    .tesla h1,
+    .satoshi h1,
+    .mc-carthy h1 {
+      color: rgb(255, 255, 255);
+      font-family: "Exo", sans-serif;
+      text-align: center;
+      padding: 10px;
+      font-size: 6vw;
+      z-index: 2;
+    }
+
+    .tesla-backdrop,
+    .satoshi-backdrop,
+    .pausch-backdrop,
+    .mc-carthy-backdrop {
+      position: absolute;
+      height: 100%;
+
+      width: 100%;
+      z-index: 1;
+    }
+
+    .tesla-backdrop {
+      background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.dribbble.com%2Fusers%2F69417%2Fscreenshots%2F3816920%2Fdribbble_tele2.gif&f=1&nofb=1");
+    }
+
+    .satoshi-backdrop {
+      background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fmax%2F3840%2F0*EBXqB5wJTWFeaT04.gif&f=1&nofb=1");
+      background-position: center;
+      z-index: 1
+    }
+
+    .pausch-backdrop {
+      background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-DVrWOSbR6s8%2FXko285F9knI%2FAAAAAAAAUuE%2FqOjpIWq4B1YV25zAjEEiXn0J_gKG_c-iACLcBGAsYHQ%2Fs1600%2FVR%252B2.gif&f=1&nofb=1");
+      z-index: 1
+    }
+
+    .mc-carthy-backdrop {
+      background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.dribbble.com%2Fusers%2F1643824%2Fscreenshots%2F3429154%2Funtitled-4.gif&f=1&nofb=1");
+      z-index: 1;
+    }
+
+    .tesla-backdrop:before,
+    .satoshi-backdrop:before,
+    .pausch-backdrop:before,
+    .mc-carthy-backdrop:before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+      top: 0;
+
+    }
+
+    .btn:hover {
+      color: white;
+      background: black;
+    }
+
+    /* Satoshi */
+    .satoshi {
+      background: #000076;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 24px;
+
+    }
+
+
+    #satoshi-asset-1 {
+      height: auto;
+      width: 60%;
+    }
+
+    /*  Pausch    */
+
+    .pausch {
+      background: #000076;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 24px;
+    }
+
+    .pausch h1 {
+      color: rgb(255, 255, 255);
+      font-family: "Exo", sans-serif;
+      text-align: center;
+      padding: 10px;
+      font-size: 6vw;
+      z-index: 2;
+    }
+
+    #pausch-asset-1 {
+      height: auto;
+      width: 60%;
+    }
+
+    #ntl-logo {
+      width: 5vw;
+      height: auto;
+    }
+
+    .ntl-about {
+      padding: 15px;
+      position: absolute;
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      background-color: rgba(17, 25, 40, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.125);
+      z-index: 1;
+      display: flex;
+      justify-self: center;
+      align-items: center;
+      flex-direction: column;
+      width: 22%;
+      top: 5%;
+      left: 5%;
+      color: white;
+      text-align: center;
+      border-radius: 9px;
+    }
+
+
+    .ntl-about:hover {
+      transform: scale(1.1);
+    }
+  </style>
+  <span id="result"></span>
+  <div class="video_container">
+    <!-- <video id="video" width="100%" height="100%" autoplay></video> -->
+    <img src="{{ url_for('video') }}" id="video" />
+  </div>
+  <a href="{{url_for('.static', filename='NTL.html')}}" target="_blank" rel="noopener noreferrer">
+    <div class="ntl-about">
+      <img src="https://raw.githubusercontent.com/NextTechLab/nexttechio/master/public/next-tech-logo.png" alt=""
+        id="ntl-logo">
+      <br>
+      <h2>INDIA'S FIRST MULTI-DISCIPINARY UNDERGRADUATE RESEARCH LAB</h2>
+    </div>
+  </a>
+
+
+  <div class="container">
+    <div class="labs">
+
+      <div class="pausch lab">
+        <h1>Pausch</h1>
+        <div class="pausch-backdrop"></div>
+        <div class="pausch-info">
+          Crafts and researches interactive digital experience to extend our perception of reality through technological
+          medias like Game Design, XR, Digital Art, and 3D CG.
+        </div>
+      </div>
+
+      <div class="tesla lab">
+        <h1>Tesla</h1>
+        <div class="tesla-backdrop"></div>
+        <div class="tesla-info">Works in domains including Electrical and Electronic Systems, Embedded Systems, Internet
+          of Things, Computer Vision and Web Development</div>
+      </div>
+
+      <div class="satoshi lab">
+        <h1>Satoshi</h1>
+        <div class="satoshi-backdrop"></div>
+        <div class="satoshi-info">
+          Works in emerging tech domains of Blockchain, Cryptocurrencies and Cybersecurity.
+        </div>
+      </div>
+
+      <div class="mc-carthy lab">
+        <h1>Mc Carthy</h1>
+        <div class="mc-carthy-backdrop"></div>
+        <div class="mc-carthy-info"> Strives to achieve excellence in the field of Machine Learning and other paradigms
+          of intelligent computing though cutting egde research. </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="buttons">
+      <div class="pausch-btn btn">
+        Pausch
+      </div>
+      <div class="tesla-btn btn">
+        Tesla
+      </div>
+      <div class="satoshi-btn btn">
+        Satoshi
+      </div>
+      <div class="mc-carthy-btn btn">
+        Mc Carthy
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+    setInterval(fetch_update, 1000);
+
+    function fetch_update() {
+      const url = 'http://127.0.0.1/update'
+      fetch(url)
+        .then(response => response.json())
+        .then(json => {
+          console.log(json);
+          document.getElementById("demo").innerHTML = JSON.stringify(json)
+        })
+    }
+
+
+    $(document).ready(function () {
+      $(".lab").hide();
+
+      $(".satoshi-btn").click(function () {
+
+        $(".pausch").hide();
+        $(".tesla").hide();
+        $(".mc-carthy").hide();
+
+        $(".satoshi").toggle(300);
+      });
+
+      $(".tesla-btn").click(function () {
+        $(".pausch").hide();
+        $(".mc-carthy").hide();
+        $(".satoshi").hide();
+
+        $(".tesla").toggle(300);
+      });
+
+      $(".mc-carthy-btn").click(function () {
+
+        $(".pausch").hide();
+        $(".tesla").hide();
+        $(".satoshi").hide();
+
+        $(".mc-carthy").toggle(300);
+
+      });
+
+
+      $(".pausch-btn").click(function () {
+
+        $(".tesla").hide();
+        $(".mc-carthy").hide();
+        $(".satoshi").hide();
+
+        $(".pausch").toggle(300);
+
+      });
+    });
+
+    var video = document.querySelector("#video");
+
+    if (navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then(function (stream) {
+          video.srcObject = stream;
+        })
+        .catch(function (error) {
+          console.log("Something went wrong!" + error);
+        });
+    }
+
+  </script>
+
+</body>
+
+</html>
