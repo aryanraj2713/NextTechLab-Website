@@ -1,4 +1,4 @@
-# NextTechLab Website
+# 🕸️NextTechLab Website
 
 <p align="center">
   <img src="https://github.com/aryanraj2713/ntl-hackathon/blob/main/assets/image-removebg-preview.png">
