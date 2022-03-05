@@ -9,6 +9,12 @@
 
  
 ## About The Project
+Next Tech Lab's website with integrated ML and gesture control made for NTL Hack'2022.
+
+
+### Links-
+1.Demo Vedio
+2.Powerpoint Presentation
 
 
 
