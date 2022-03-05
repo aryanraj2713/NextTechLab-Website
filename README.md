@@ -16,7 +16,7 @@
 ## Hosting on Local Machine Server-
 Using your git client clone the repository-
 ```
-$git clone https://github.com/pranavgupta2603/ntl_hackathon.git
+$git clone https://github.com/aryanraj2713/ntl-hackathon.git
 ```
 ```
 pip install requirements.txt
