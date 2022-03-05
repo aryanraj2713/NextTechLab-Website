@@ -14,7 +14,7 @@ Next Tech Lab's website with integrated ML and gesture control made for NTL Hack
 
 ### Links-
 - [ ] [Demo Vedio](https://drive.google.com/file/d/1SNRj6a41NycKK7BnrzfCd8jiI0Gl-Cu2/view?usp=sharing)
-- [ ] [Presentation](https://docs.google.com/presentation/d/13EDUNJKHgs3iGnSiq82Kv3LCGpVIgF6Uujt3m2ModCk/edit?usp=sharing)
+- [ ] [Presentation](https://github.com/aryanraj2713/NTL-Website)
 
 
 
