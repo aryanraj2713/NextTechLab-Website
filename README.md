@@ -9,6 +9,12 @@
 
  
 ## About The Project
+Next Tech Lab's website with integrated ML and gesture control made for NTL Hack'2022.
+
+
+### Links-
+1.Demo Vedio
+2.Powerpoint Presentation
 
 
 
@@ -18,6 +24,7 @@ Using your git client clone the repository-
 ```
 $git clone https://github.com/aryanraj2713/ntl-hackathon.git
 ```
+Install requirements-
 ```
 pip install requirements.txt
 ```

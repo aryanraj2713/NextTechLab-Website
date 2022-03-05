@@ -53,8 +53,7 @@
 
         .heading-NTL {
             color: white;
-            display: flex;
-            justify-content: space-between;
+            text-align: center;
         }
 
         .description-ntl,
@@ -83,7 +82,7 @@
             color: black;
         }
 
-        #next-tech-logo {
+        .next-tech-logo {
             width: auto;
             height: 5vw;
         }
@@ -93,7 +92,10 @@
         .mc-carthy-lab,
         .mc-carthy-domains,
         .pausch-lab,
-        .pausch-domains {
+        .pausch-domains,
+        .default-desc,
+        .satoshi-lab,
+        .satoshi-domains {
             color: white;
             width: 100%;
             font-size: 1.3em;
@@ -101,23 +103,40 @@
 
 
         .tesla-lab h2,
-        .mc-carthy-lab h2 {
+        .mc-carthy-lab h2,
+        .pausch-lab h2,
+        .satoshi-lab h2 {
             font-size: 1.7em;
             color: white;
-        }
-
-        .tesla-lab h2,
-        .pausch-lab h2 {
             text-align: center;
         }
+
+
 
         .tesla-lab,
         .tesla-domains,
         .mc-carthy-lab,
         .mc-carthy-domains,
         .pausch-lab,
-        .pausch-domains {
+        .pausch-domains,
+        .satoshi-lab,
+        .satoshi-domains {
             display: none;
+        }
+
+        .default-desc {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+        }
+
+        hr {
+            border: 0.1px solid rgb(106, 106, 106);
+            width: 100%;
         }
     </style>
 
@@ -125,8 +144,6 @@
         <div class="card main">
             <div class="heading-NTL">
                 <h1>NEXT TECH LAB</h1>
-                <img src="https://raw.githubusercontent.com/NextTechLab/nexttechio/master/public/next-tech-logo.png"
-                    id="next-tech-logo" alt="">
             </div>
             <br>
             <div class="description-ntl">
@@ -179,10 +196,21 @@
 
         <div class="card desc">
 
+            <div class="exp default-desc ">
+                <img src="https://raw.githubusercontent.com/NextTechLab/nexttechio/master/public/next-tech-logo.png"
+                    alt="" class="next-tech-logo">
+                <h2>Founded in 2016</h2>
+                <br>
+                <hr>
+                <br>
+                <h4>Click <a href="https://www.instagram.com/nexttechlab/?hl=en" style="color:rgb(148, 204, 237)"> Here
+                    </a> to apply for joining our
+                    community. </h4>
+            </div>
+
             <div class="tesla-lab exp">
                 <h2>TESLA LAB</h2>
-                <br>
-                <hr><br>
+
                 <div class="tesla-lab-desc">
                     Tesla lab focusses on mainly IoT , Automation, Embedded Systems and Web development.
                 </div>
@@ -304,6 +332,38 @@
 
             </div>
 
+            <div class="satoshi-lab exp">
+                <h2>Satoshi Lab</h2>
+                <h3>What we do ?</h3>
+                <article>We work in emerging tech domains of Blockchain, Cryptocurrency and Cybersecurity. </article>
+                <hr>
+                <h3>What we expect</h3>
+                <article>
+                    If you consider yourself someone who would open to exploring new oppurtunities in the exciting Web
+                    3.0 movement to develop products that server a growing customer base, we cannot wait to meet you.
+                </article>
+
+            </div>
+
+            <div class="satoshi-domains exp">
+                <h2>Cryptocurrency</h2>
+                <article>
+                    A cryptocurrency, crypto-currency, or crypto is a digital currency designed to work as a medium of
+                    exchange through a computer network that is not reliant on any central authority, such as a
+                    government or bank, to uphold or maintain it.
+                </article>
+
+                <hr>
+
+                <h2>Blockchain</h2>
+                <article>
+                    A blockchain is a growing list of records, called blocks, that are linked together using
+                    cryptography. Each block contains a cryptographic hash of the previous block, a timestamp, and
+                    transaction data.
+                </article>
+
+            </div>
+
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -313,6 +373,7 @@
             $("td").click(function () {
 
                 var field = $(this).html();
+                console.log(field);
                 if (field == "Tesla Lab") {
                     $(".exp").hide();
                     $(".tesla-lab").show(400);
@@ -337,10 +398,17 @@
                     $(".exp").hide();
                     $(".pausch-lab").fadeIn(300);
                 }
-                else if (field == "Game Development, Virtual and Augmented Reality & UI/UX") {
+                else if (field == "Game Development, Virtual and Augmented Reality &amp; UI/UX") {
                     $(".exp").hide();
-                    console.log("hello");
                     $(".pausch-domains").show(300);
+                }
+                else if (field == "Satoshi Lab") {
+                    $(".exp").hide();
+                    $(".satoshi-lab").show(300);
+                }
+                else if (field == "Cryptocurrency &amp; Blockchain") {
+                    $(".exp").hide();
+                    $(".satoshi-domains").show(300);
                 }
             })
         });
