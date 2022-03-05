@@ -18,6 +18,7 @@ Using your git client clone the repository-
 ```
 $git clone https://github.com/aryanraj2713/ntl-hackathon.git
 ```
+Install requirements-
 ```
 pip install requirements.txt
 ```
