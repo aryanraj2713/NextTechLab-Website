@@ -4,4 +4,3 @@ mediapipe
 numpy
 flask
 jsonify
-cgitb
