@@ -13,8 +13,8 @@ Next Tech Lab's website with integrated ML and gesture control made for NTL Hack
 
 
 ### Links-
-1.Demo Vedio
-2.Powerpoint Presentation
+- [ ] [Demo Vedio](https://github.com/aryanraj2713/ntl-hackathon/blob/main/assets/Home%20-%20Next%20Tech%20Lab%20-%20Brave%202022-03-05%2016-13-13.mp4)
+- [ ] Presentation
 
 
 
