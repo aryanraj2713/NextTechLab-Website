@@ -155,7 +155,7 @@ python3 app.py
  <p>
  <br>
    <img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=Microsoft%20Word&style=for-the-badge" height="28"/><br>
-   <br><strong>NTL Website</strong> is under MIT License, Please Read the license.
+   <br><strong>NTL Website</strong> is under MIT License, Please Read the <strong>LICENSE</strong>
   <p>
  </div>
  <br>
