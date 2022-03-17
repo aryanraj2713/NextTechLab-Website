@@ -145,6 +145,10 @@ python3 app.py
 
 </table>
 
+
+![logo-anchor](https://raw.githubusercontent.com/NextTechLab/Branding/master/Image%20files/Logo%20with%20text%20(Unstacked)/Logo%20with%20text%20(unstacked).png)
+
+
 ---
 
  <div align="left">
