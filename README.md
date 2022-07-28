@@ -103,7 +103,7 @@ python3 app.py
 **Aryan Raj**
 
 <p align="center">
-<img src = "https://media-exp1.licdn.com/dms/image/C4D03AQEvTogVnAnOvQ/profile-displayphoto-shrink_400_400/0/1630781238410?e=1651708800&v=beta&t=65-rLRpsU0Xt_10KvVYcv1EMyXFFMyuiuy9Sk_u9rhs"  height="120" alt="Aryan raj">
+<img src = "https://avatars.githubusercontent.com/u/75358720?v=4"  height="120" alt="Aryan raj">
 </p>
 <p align="center">
 <a href = "https://github.com/aryanraj2713"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36"/></a>
